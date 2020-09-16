@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: profiles-showcase
+
+service:
+  someNumber: 3000
+  someText: 'This is a general property, which is valid for the application, independent of the used profile'
+
+---
+spring:
+  profiles: business1
+
+server:
+  port: 8085
+
+workflow:
+  id: BU1
+  description: 'Spring profile dependent configuration for the 1st business unit'
+  url: http://some_BU1_specific_url/some/path
+
+---
+spring:
+  profiles: business2
+
+server:
+  port: 8090
+
+workflow:
+  id: BU2
+  description: 'Spring profile dependent configuration for the 2nd business unit'
+  url: http://some_BU2_specific_url/some/path
+
+additional:
+  description: 'some more configuration for an extended workflow'
